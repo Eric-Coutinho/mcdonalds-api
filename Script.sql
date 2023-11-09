@@ -37,7 +37,7 @@ create table ClientOrder(
 	ID int Identity primary key,
 	OrderCode varchar(12) not null,
 	StoreID int references Store(ID) not null,
-	Moment datetime not null,
+	FinishMoment datetime null,
 	DeliveryMoment datetime null,
 );
 go

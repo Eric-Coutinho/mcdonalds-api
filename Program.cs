@@ -2,14 +2,18 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using mcdonalds_api.Model;
+using mcdonalds_api.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+builder.Services.AddSingleton<McDataBaseContext>();
 
+var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

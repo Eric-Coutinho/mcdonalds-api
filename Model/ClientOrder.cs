@@ -11,7 +11,7 @@ public partial class ClientOrder
 
     public int StoreId { get; set; }
 
-    public DateTime Moment { get; set; }
+    public DateTime? FinishMoment { get; set; }
 
     public DateTime? DeliveryMoment { get; set; }
 
