@@ -11,7 +11,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<McDataBaseContext>();
+// builder.Services.AddSingleton<McDataBaseContext>();
+builder.Services.AddScoped<McDataBaseContext>();
+// builder.Services.AddSingleton<IOrderRepository, FakeOrderRepository>();
+builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
